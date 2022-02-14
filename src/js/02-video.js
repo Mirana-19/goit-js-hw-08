@@ -11,8 +11,8 @@ player.on(
 
 const videoplayerCurrentTime = JSON.parse(localStorage.getItem('videoplayer-current-time'));
 
-if (videoplayerCurrentTime.seconds >= 560) {
-  player.setCurrentTime(0); //сделала рестарт видео с 0, если посмотрели почти до конца
+if (!videoplayerCurrentTime || videoplayerCurrentTime.seconds >= 560) {
+  player.setCurrentTime(0);
 } else {
   player.setCurrentTime(videoplayerCurrentTime.seconds);
 }
